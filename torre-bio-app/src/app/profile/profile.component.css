@@ -1,0 +1,43 @@
+.profile-container{
+  height:270px;
+  width:100%;
+  z-index:2;
+  overflow:hidden;
+  margin-top:64px;
+  padding:0 16px;
+  background: rgba(255, 255, 255, 0.35);
+  left: 0;
+  position: fixed;
+  right: 0;
+}
+
+.avatar{
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
+  border:5px solid;
+  margin-left:auto;margin-right:auto;
+  
+}
+
+.share{
+  margin-left:auto;margin-right:auto;
+}
+
+.background-image {
+  background-image: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_527bf56961712_1.JPG');
+  background-size: cover;
+  display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  height:270px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+}
+
+.top{
+  height: 270px;
+  box-shadow: 0 4px 5px rgba(0,0,0,.2),0 2px 2px rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12);
+}
