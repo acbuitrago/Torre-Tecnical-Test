@@ -1,0 +1,10 @@
+<div mat-dialog-content>
+  <p *ngIf="data.error">Error: {{data.error}}</p>
+  <p>Please provide your bio profile id</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.userid">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.userid" cdkFocusInitial>Ok</button>
+</div>

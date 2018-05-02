@@ -1,10 +1,13 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {Router, ActivatedRoute, ParamMap,Params} from '@angular/router';
-import { ProfileComponent } from './profile.component';
+import { ProfileComponent, DialogAskUser } from './profile.component';
+import { FormsModule } from '@angular/forms';
+
 import { MainComponent } from './main.component';
 import { MaterialModule } from '../shared/material.module';
 import { ProfileService } from './profile.service';
+import { CommonModule } from '@angular/common';
 
 const profileRouting: ModuleWithProviders =RouterModule.forChild([
   {
@@ -18,11 +21,16 @@ const profileRouting: ModuleWithProviders =RouterModule.forChild([
 
 @NgModule({
   imports:[
+    CommonModule,
     profileRouting,
+    FormsModule,
     MaterialModule
   ],
+  entryComponents: [ProfileComponent, DialogAskUser],
+
   declarations:[
     ProfileComponent,
+    DialogAskUser,
     MainComponent
   ],
   providers: [ProfileService]

@@ -1,43 +1,88 @@
+.hidden { display: none !important;}
+
+.container-fluid{
+    height:270px;
+}
+.container{
+      height:270px;
+      width: 100% !important;
+}
 .profile-container{
+
   height:270px;
   width:100%;
   z-index:2;
   overflow:hidden;
-  margin-top:64px;
   padding:0 16px;
   background: rgba(255, 255, 255, 0.35);
   left: 0;
-  position: fixed;
   right: 0;
+  margin-top:-206px;
 }
 
+
+.flex-fill {
+    flex: 1 1 auto;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
 .avatar{
   width: 120px;
   height: 120px;
   border-radius: 120px;
   border:5px solid;
   margin-left:auto;margin-right:auto;
-  
+
 }
 
 .share{
   margin-left:auto;margin-right:auto;
 }
 
+.card-wrapper{
+  width: 100%;
+  max-width:720px;
+}
 .background-image {
-  background-image: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_527bf56961712_1.JPG');
+    margin-top:64px;
   background-size: cover;
   display: block;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
   height:270px;
   left: 0;
-  position: fixed;
   right: 0;
   z-index: 1;
+  overflow: hidden;
 }
 
 .top{
-  height: 270px;
+  overflow:hidden;
   box-shadow: 0 4px 5px rgba(0,0,0,.2),0 2px 2px rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12);
+}
+.tabs{
+  position: absolute;
+  bottom: 0px;
+  margin:0px;
+}
+.center-col{
+  display:flex;justify-content:center;align-items:flex-end;
+
+}
+.mdc-tab{
+  min-width: 72px;
+  max-width: 264px;
+  padding: 0 12px;
+  font-weight: 400;
+}
+
+.title{
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.text-secondary{
+  font-weight: 300;
+  margin-top: 10px;
 }

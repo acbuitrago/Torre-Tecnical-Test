@@ -1,33 +1,71 @@
-<main class="demo-main">
-  <div class="top">
-    <div class="background-image"></div>
-    <div class="profile-container">
-      <div class="container-fluid">
-        <div class="row justify-content-right">
-          <div class="col">
-            <button mat-icon-button class="float-right">
-              <mat-icon aria-label="Example icon-button with a heart icon">share</mat-icon>
-            </button>
-          </div>
-        </div>
-        <div class="row justify-content-center align-items-center">
-          <div class="col text-center" >
-            <div class="avatar"></div>
+<div>
+  <div *ngIf="userData" >
+    <div class="top">
 
+      <div class="background-image" *ngIf="userImage" [style.background-image]="userImage"></div>
+      <div class="profile-container">
+        <div class="container-fluid  d-flex h-100 flex-column" >
+          <div class="row justify-content-right">
+            <div class="col">
+              <button mat-icon-button class="float-right">
+                <mat-icon aria-label="Example icon-button with a heart icon">share</mat-icon>
+              </button>
+            </div>
           </div>
-        </div>
+          <div class="row justify-content-center align-items-center">
+            <div class="col text-center" >
+              <img class="avatar" src="{{userData.person.picture}}"/>
+            </div>
+          </div>
 
-        <div class="row">
-          <div class="col">
-            <nav id="basic-tab-bar" class="mdc-tab-bar">
-              <a class="mdc-tab mdc-tab--active" href="#one">Home</a>
-              <a class="mdc-tab" href="#two">Merchandise</a>
-              <a class="mdc-tab" href="#three">About Us</a>
-              <span class="mdc-tab-bar__indicator"></span>
-            </nav>
+          <div class="row flex-fill d-flex justify-content-center overflow">
+            <div class="col text-center center-col">
+              <nav id="basic-tab-ba" class="mdc-tab-bar tabs">
+                <a  class="mdc-tab" *ngFor="let t of sections">{{getPrettyNameSection(t)}}</a>
+              </nav>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div >
+
+</div>
+<div class="container card-wrapper" *ngIf="userData" >
+  <div class="row justify-content-center align-items-center">
+    <div class="col text-center" >
+      <mat-card class="example-card">
+        <h4 class="title">Hello my name is {{userData.person.name}}</h4>
+        <h5 class="text-secondary">{{userData.person.professionalHeadline}}</h5>
+        <h5 class="text-secondary small">{{userData.person.location}}</h5>
+        <button class="mdc-button mdc-button--raised" (click)="subscribeToLogin();">
+          Merge with LinkedIn
+        </button>
+        <hr>
+
+        <button mat-icon-button  *ngFor="let link of userData.person.links" (click)="onClickLink(link)"><mat-icon class="navigation-icon">favorite</mat-icon></button>
+
+      </mat-card>
+    </div>
+
+
   </div>
-</main>
+  <div *ngFor="let sec of sections" style="margin-top:30px;">
+    <div class="row justify-content-center align-items-center" >
+        <div class="col text-center" >
+          <h3 class="title text-left">{{getPrettyNameSection(sec)}}</h3>
+        </div>
+    </div>
+      <mat-card class="example-card" *ngFor="let element of getElementsInSection(sec)" style="margin-top:10px;">
+        <h4 class="title" *ngIf="element.name">{{element.name}}</h4>
+        <h4 class="title" *ngIf="element.role">{{element.role}}</h4>
+
+        <h5 *ngFor="let org of element.organizations" class="text-secondary">{{org.name}}</h5>
+        <h5 class="text-secondary small"><span>{{element.fromMonth}} {{element.fromYear}}</span> <span *ngIf="element.fromMonth !== element.toMonth && element.fromYear !== element.toYear">- {{element.toMonth}} {{element.toYear}}</span></h5>
+
+      </mat-card>
+
+
+  </div>
+
+</div>

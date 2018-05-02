@@ -4,14 +4,12 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProfileService {
-
+  torreURL:string ="https://bio.torre.co/api/";
   constructor(public http: Http) { }
 
 
   getUser(userid:string){
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.get("https://bio.torre.co/api/bios/"+userid, {headers: headers})
+    return this.http.get(this.torreURL+"bios/"+userid)
       .map(res => res.json());
   }
 
